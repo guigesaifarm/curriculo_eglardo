@@ -1,1 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eglardo Fabrício Alves dos Santos - Currículo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #6366f1;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(14, 165, 233, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .social-btn:hover {
+            background: var(--gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        .objective {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+        }
+
+        .objective::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .timeline-desc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-desc li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(14, 165, 233, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .languages {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-flag {
+            font-size: 1.5rem;
+        }
+
+        .lang-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lang-name {
+            font-weight: 600;
+        }
+
+        .lang-level {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.03) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover::after {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .bg-animation, .particles, .social-btn, .card::before {
+                display: none;
+            }
+            .card, .objective, .skill-category, .project-card {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+            .timeline::before {
+                background: #333;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-badge">⚡ Disponível para Oportunidades</div>
+                <h1>Eglardo Fabrício Alves dos Santos</h1>
+                <p class="subtitle">Engenheiro Eletricista & Desenvolvedor de Soluções em IA</p>
+                
+                <div class="contact-grid">
+                    <a href="tel:+5583996018715" class="contact-item">
+                        <span>📞</span> (83) 99601-8715
+                    </a>
+                    <a href="mailto:guigesaifarm@gmail.com" class="contact-item">
+                        <span>✉️</span> guigesaifarm@gmail.com
+                    </a>
+                    <span class="contact-item">
+                        <span>📍</span> Uberlândia - MG
+                    </span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://br.linkedin.com/in/eglardo-fabricio-a6127538" target="_blank" class="social-btn">
+                        <span>💼</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/guigesaifarm" target="_blank" class="social-btn">
+                        <span>🐙</span> GitHub
+                    </a>
+                    <a href="https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=192C5264AFC928EF7A1C2376CA3109D3" target="_blank" class="social-btn">
+                        <span>📄</span> Currículo Lattes
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="objective fade-in">
+            <h2 class="section-title">🎯 Objetivo Profissional</h2>
+            <p>Atuar como engenheiro eletricista e desenvolvedor de sistemas inteligentes aplicados à <strong>agricultura de precisão</strong>, <strong>automação industrial</strong> e <strong>energias renováveis</strong>, com foco em integração de sensores, controle IoT, machine learning e inteligência artificial.</p>
+        </section>
+
+        <div class="grid-2">
+            <div class="card fade-in">
+                <h3>🎓 Formação Acadêmica</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-title">Pós-Graduação em Engenharia de Software</div>
+                        <div class="timeline-company">Universidade Estácio de Sá (EAD)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-title">Licenciatura em Matemática</div>
+                        <div class="timeline-company">Universidade Estácio de Sá (EAD)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-title">Pós-Graduação em Ciências Naturais, Matemática e Estatística</div>
+                        <div class="timeline-company">Faculdade Vale Elvira</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2013</div>
+                        <div class="timeline-title">Especialização em Mecânica/Eletrônica</div>
+                        <div class="timeline-company">Marinha do Brasil - RJ</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2011</div>
+                        <div class="timeline-title">Graduação em Engenharia Elétrica (Ênfase em Eletrônica)</div>
+                        <div class="timeline-company">Universidade Federal de Campina Grande (UFCG)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3>💼 Experiência Profissional</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <div class="timeline-title">Desenvolvedor de Projetos de Software (Autônomo)</div>
+                        <div class="timeline-company">GuigesAIFarm</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>IA e Machine Learning para agronegócio</li>
+                                <li>Sistemas IoT com ESP32 e sensores</li>
+                                <li>Visão computacional (OpenCV, TensorFlow)</li>
+                                <li>Automação de pivôs centrais e drones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-title">Analista PCP</div>
+                        <div class="timeline-company">SUPERCITRUS - Uberlândia/MG</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <div class="timeline-title">Professor de Matemática e Ciências</div>
+                        <div class="timeline-company">Redes Municipais de MG e PE</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2017 - 2019</div>
+                        <div class="timeline-title">Gerente de Projetos Elétricos - Energia Solar</div>
+                        <div class="timeline-company">ELETROITA - João Pessoa/PB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-in">
+            <h3>🛠️ Habilidades Técnicas</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Linguagens</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>IA & Machine Learning</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">Visão Computacional</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>IoT & Hardware</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ESP32</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">MQTT</span>
+                        <span class="skill-tag">Modbus</span>
+                        <span class="skill-tag">PLCs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Softwares</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Node-RED</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">SAP</span>
+                        <span class="skill-tag">PVSyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-in" style="margin-top: 2rem;">
+            <h3>🚀 Projetos Relevantes</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🌱</div>
+                    <div class="project-title">Sistema Inteligente de Irrigação</div>
+                    <div class="project-desc">Controle de pivôs centrais com análise de imagens e sensores de solo utilizando IA</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <div class="project-title">Plataforma de Monitoramento Agrícola</div>
+                    <div class="project-desc">Sistema com machine learning e interface web para gestão de dados em tempo real</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">☀️</div>
+                    <div class="project-title">Automação de Energia Solar</div>
+                    <div class="project-desc">Controle inteligente de sistemas fotovoltaicos em propriedades rurais</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🐄</div>
+                    <div class="project-title">Rastreamento in loco com IoT</div>
+                    <div class="project-desc">Sistema de monitoramento com análise de dados meteorológicos integrados</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 2rem;">
+            <div class="card fade-in">
+                <h3>🌐 Idiomas</h3>
+                <div class="languages">
+                    <div class="language-item">
+                        <span class="lang-flag">🇧🇷</span>
+                        <div class="lang-info">
+                            <span class="lang-name">Português</span>
+                            <span class="lang-level">Nativo</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span class="lang-flag">🇺🇸</span>
+                        <div class="lang-info">
+                            <span class="lang-name">Inglês</span>
+                            <span class="lang-level">Avançado</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span class="lang-flag">🇩🇪</span>
+                        <div class="lang-info">
+                            <span class="lang-name">Alemão</span>
+                            <span class="lang-level">Intermediário</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3>📈 Conhecimentos Complementares</h3>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Matemática Financeira Avançada</li>
+                        <li>Análise de Mercado de Ações e Fundos</li>
+                        <li>Criptomoedas (Altcoins, Stablecoins)</li>
+                        <li>Day Trade e Swing Trade</li>
+                        <li>Gestão de Projetos (PMI)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
